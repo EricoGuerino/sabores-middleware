@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_report_catalogo" pageWidth="768" pageHeight="450" orientation="Landscape" columnWidth="768" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2ae3dcd3-525f-4d30-9c8c-f19cdb187189">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomeProduto1" class="java.lang.String"/>
+	<field name="nomeProduto2" class="java.lang.String"/>
+	<field name="nomeProduto3" class="java.lang.String"/>
+	<field name="descricaoProduto1" class="java.lang.String"/>
+	<field name="descricaoProduto2" class="java.lang.String"/>
+	<field name="descricaoProduto3" class="java.lang.String"/>
+	<field name="semLactose1" class="java.io.InputStream"/>
+	<field name="semLactose2" class="java.io.InputStream"/>
+	<field name="semLactose3" class="java.io.InputStream"/>
+	<field name="semGluten1" class="java.io.InputStream"/>
+	<field name="semGluten2" class="java.io.InputStream"/>
+	<field name="semGluten3" class="java.io.InputStream"/>
+	<field name="vegano1" class="java.io.InputStream"/>
+	<field name="vegano2" class="java.io.InputStream"/>
+	<field name="vegano3" class="java.io.InputStream"/>
+	<field name="imagemProduto1" class="java.io.InputStream"/>
+	<field name="imagemProduto2" class="java.io.InputStream"/>
+	<field name="imagemProduto3" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="450" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="220" height="80" uuid="a5334f61-ccc2-4702-afc3-453cd580d0d6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeProduto1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="547" y="0" width="220" height="80" uuid="f6559452-eb90-4237-93be-0f5026fac97a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeProduto3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="275" y="0" width="220" height="80" uuid="8c91428d-1505-4132-8aca-245dab089751"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeProduto2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="276" y="90" width="220" height="50" uuid="69af2d68-17fe-4b21-bcce-6871cfacd4ce"/>
+				<textElement>
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricaoProduto2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="547" y="90" width="220" height="50" uuid="470925f3-4969-4c67-b3ef-7710ecdf2126"/>
+				<textElement>
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricaoProduto3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="90" width="220" height="50" uuid="d498a069-800b-4654-99e5-976b873ab1e5"/>
+				<textElement>
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricaoProduto1}]]></textFieldExpression>
+			</textField>
+			<image isUsingCache="false">
+				<reportElement x="548" y="210" width="222" height="210" uuid="a49bc19d-9033-4a37-8c03-0305fafef435">
+					<printWhenExpression><![CDATA[$F{imagemProduto3} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{imagemProduto3}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="276" y="210" width="220" height="210" uuid="9876bcfe-15c0-4ff7-a2a2-5cc6317628ea">
+					<printWhenExpression><![CDATA[$F{imagemProduto2} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{imagemProduto2}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="0" y="210" width="220" height="210" uuid="067a5f6b-99d0-471c-ac31-4787a255559c">
+					<printWhenExpression><![CDATA[$F{imagemProduto1} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{imagemProduto1}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="2" y="150" width="50" height="50" uuid="dabbc607-3352-4f04-9823-3437688f80cf">
+					<printWhenExpression><![CDATA[$F{semLactose1}  != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{semLactose1}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="85" y="150" width="50" height="50" uuid="c2637366-35e7-4d76-892c-a8e69fe190bb">
+					<printWhenExpression><![CDATA[$F{semGluten1} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{semGluten1}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="170" y="150" width="50" height="50" uuid="5ed7905b-c4fd-4d70-956a-4c6babca10e1">
+					<printWhenExpression><![CDATA[$F{vegano1} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{vegano1}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="276" y="150" width="50" height="50" uuid="cb3499c1-8fa7-470a-82e1-4e388c716462">
+					<printWhenExpression><![CDATA[$F{semLactose2} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{semLactose2}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="361" y="150" width="50" height="50" uuid="6c4b0f8f-7739-4bf9-b159-8626fc6a5fd7">
+					<printWhenExpression><![CDATA[$F{semGluten2} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{semGluten2}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="446" y="150" width="50" height="50" uuid="8be4a5e6-9547-423a-8f05-939506e0ed92">
+					<printWhenExpression><![CDATA[$F{vegano2} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{vegano2}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="550" y="150" width="50" height="50" uuid="b1e90287-5f45-40de-8f3b-feb15a900ee7">
+					<printWhenExpression><![CDATA[$F{semLactose3} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{semLactose3}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="635" y="150" width="50" height="50" uuid="5773179c-e528-4ff4-839e-6ca7a4ae1432">
+					<printWhenExpression><![CDATA[$F{semGluten3} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{semGluten3}]]></imageExpression>
+			</image>
+			<image isUsingCache="false">
+				<reportElement x="718" y="150" width="50" height="50" uuid="4394ba7e-67f8-4594-9aba-75c9d414186e">
+					<printWhenExpression><![CDATA[$F{vegano3} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{vegano3}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

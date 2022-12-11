@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="catalogo_master" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="334c4d6c-02dc-4b80-b121-fa4f50f36c84">
+	<subDataset name="dsSumario" uuid="6798ab1e-7254-47ba-9612-fbe22cb6e465">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="index" class="java.lang.String"/>
+		<field name="empresa" class="java.lang.String"/>
+		<field name="pagina" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dsPrecos" uuid="00a7ea39-b457-4d51-a8f2-1e29dd386b14">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="index" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="preco" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="SUBREPORT_CATALOGO" class="java.lang.String"/>
+	<parameter name="SUB_SUBREPORT_CATALOGO" class="java.lang.String"/>
+	<parameter name="CATALOGO_BACKGROUND" class="java.io.InputStream"/>
+	<parameter name="IMAGEM_CAPA" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="listaCatalogo" class="java.util.List"/>
+	<field name="listaSumario" class="java.util.List"/>
+	<field name="listaPrecos" class="java.util.List"/>
+	<background>
+		<band height="555" splitType="Stretch">
+			<image scaleImage="FillFrame" isUsingCache="true" evaluationTime="Master">
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="555" uuid="aad3f7c1-5c5c-4878-a1c3-b0a1fe039aea"/>
+				<imageExpression><![CDATA[$P{CATALOGO_BACKGROUND}]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<detail>
+		<band height="555" splitType="Stretch">
+			<image>
+				<reportElement x="106" y="117" width="590" height="320" uuid="cb585498-3dff-407b-8541-7ba85b789811"/>
+				<imageExpression><![CDATA[$P{IMAGEM_CAPA}]]></imageExpression>
+			</image>
+		</band>
+		<band height="555">
+			<staticText>
+				<reportElement x="180" y="50" width="400" height="80" forecolor="#205E24" uuid="bdd06bb1-f1b1-4126-b34f-a819d2b30a4d"/>
+				<box>
+					<pen lineColor="#205E24"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="53" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SUMÁRIO]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="50" y="158" width="690" height="32" uuid="a9537a39-03e5-477f-b075-0de2ad26cd48"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsSumario" uuid="28dde333-721e-4142-8069-58b5b89e82ea">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaSumario}) ]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="32" width="690">
+						<textField>
+							<reportElement x="0" y="0" width="100" height="30" forecolor="#205E24" uuid="92c5d6bc-0b15-46d9-b513-d20981c889a1"/>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{index} + ")"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="100" y="0" width="300" height="30" forecolor="#205E24" uuid="0f93d7a6-f961-4df5-bba7-8602da6a3094"/>
+							<box leftPadding="10"/>
+							<textElement verticalAlignment="Bottom">
+								<font size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="589" y="1" width="100" height="30" forecolor="#205E24" uuid="78be5e0f-3a54-49fb-b071-a9d242f83d54"/>
+							<box leftPadding="0"/>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{pagina}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="400" y="1" width="190" height="30" forecolor="#205E24" uuid="ef5e5e07-c745-49f0-ac54-20f892d736d4"/>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[...............................................................]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="555">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="0" width="842" height="555" uuid="6f49a3c8-5df8-470f-b78a-8eb092a55507"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUB_SUBREPORT_CATALOGO">
+					<subreportParameterExpression><![CDATA[$P{SUB_SUBREPORT_CATALOGO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((ArrayList)$F{listaCatalogo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_CATALOGO}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="555">
+			<staticText>
+				<reportElement x="81" y="40" width="640" height="80" forecolor="#205E24" uuid="e5986137-d2f2-4bd2-8fc2-6560e2d3cac1"/>
+				<box>
+					<pen lineColor="#205E24"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="53" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TABELA DE PREÇOS]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="81" y="168" width="640" height="30" uuid="8e9889c1-9800-4beb-aa36-415c7c172f64"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsPrecos" uuid="d038814c-bd40-45f5-92a2-e9487028b248">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaPrecos})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="640">
+						<textField>
+							<reportElement x="0" y="0" width="70" height="30" forecolor="#205E24" uuid="580e131b-c766-43fd-a012-532c5b02a965"/>
+							<box leftPadding="10"/>
+							<textElement verticalAlignment="Bottom">
+								<font size="13" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{index} + ")"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="70" y="0" width="330" height="30" forecolor="#205E24" uuid="afab64de-912d-42c0-8fb6-22df9cb28580"/>
+							<box leftPadding="10"/>
+							<textElement verticalAlignment="Bottom">
+								<font size="13" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="540" y="0" width="100" height="30" forecolor="#205E24" uuid="688c5c22-115e-4438-a0ee-f745d53412b2"/>
+							<box leftPadding="10"/>
+							<textElement verticalAlignment="Bottom">
+								<font size="13" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="400" y="0" width="140" height="30" forecolor="#205E24" uuid="4267d6cd-86c6-432a-a926-c21e26216b3b"/>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font isBold="true"/>
+							</textElement>
+							<text><![CDATA[...........................................]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
