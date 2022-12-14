@@ -111,8 +111,8 @@ public class ServicosFacade {
 		Integer precoMaximo = mapProdutos.get("precoMaximo") != null ? (Integer)mapProdutos.get("precoMaximo") : 0;
 		
 		Boolean filtrarProdutos = !listaProdutos.isEmpty();
-		Boolean filtrarFabricantes = !listaProdutos.isEmpty();
-		Boolean filtrarCategorias = !listaProdutos.isEmpty();
+		Boolean filtrarFabricantes = !listaFabricantes.isEmpty();
+		Boolean filtrarCategorias = !listaCategorias.isEmpty();
 		Boolean filtrarPrecoMinimo = precoMinimo > 0;
 		Boolean filtrarPrecoMaximo = precoMaximo > 0;
 		
@@ -197,10 +197,16 @@ public class ServicosFacade {
 				if (!id.equals(idFabricante)) {
 					continue;
 				}
-				
+				byte[] dados = null;
 				Map<String,Object> mapImagemProduto = consumesGetServices(rotas.obterUrlProdutos("imagens/produto/"+idProduto));
-				String imagemBase64 = (String)mapImagemProduto.get("dadosBase64");
-				byte[] dados = Base64.decodeBase64(imagemBase64);
+				if (mapImagemProduto.get("id") == null) {
+					FileInputStream fileImagemNaoDisponivel = new FileInputStream(new File(ServicosFacade.class.getResource("/img/imagem_nao_disponivel.jpeg").getPath()));
+					InputStream imagemNaoDisponivel = new ByteArrayInputStream(IOUtils.toByteArray(fileImagemNaoDisponivel));
+					dados = IOUtils.toByteArray(imagemNaoDisponivel);
+				} else {
+					String imagemBase64 = (String)mapImagemProduto.get("dadosBase64");					
+					dados = Base64.decodeBase64(imagemBase64);
+				}
 				
 				Boolean semLactose = Boolean.FALSE;
 				Boolean semGluten = Boolean.FALSE;
